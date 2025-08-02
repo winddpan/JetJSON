@@ -11,7 +11,7 @@ import CodeEditTextView
 import SwiftUI
 
 struct ContentView: View {
-    @State private var text = testJSON
+    @State private var textStorage = NSTextStorage()
     @State private var highlighter = JSONSyntaxHighlighter()
     @State private var language: CodeLanguage = .json
     @State private var theme: EditorTheme = .system
@@ -30,28 +30,52 @@ struct ContentView: View {
     @AppStorage("showFoldingRibbon") private var showFoldingRibbon: Bool = true
     @AppStorage("wrapLines") private var wrapLines: Bool = true
 
+    var jsonStatistics: JSONStatistics {
+        JSONStatistics(from: textStorage.string)
+    }
+
     var body: some View {
-        SourceEditor(
-            $text,
-            language: language,
-            configuration: SourceEditorConfiguration(
-                appearance: .init(theme: theme, font: font, wrapLines: wrapLines),
-                behavior: .init(
-                    indentOption: indentOption,
-                    reformatAtColumn: reformatAtColumn
+        VStack(spacing: 0) {
+            SourceEditor(
+                textStorage,
+                language: language,
+                configuration: SourceEditorConfiguration(
+                    appearance: .init(theme: theme, font: font, wrapLines: wrapLines),
+                    behavior: .init(
+                        indentOption: indentOption,
+                        reformatAtColumn: reformatAtColumn
+                    ),
+                    peripherals: .init(
+                        showGutter: showGutter,
+                        showMinimap: showMinimap,
+                        showReformattingGuide: showReformattingGuide,
+                        invisibleCharactersConfiguration: invisibleCharactersConfig,
+                        warningCharacters: warningCharacters
+                    )
                 ),
-                peripherals: .init(
-                    showGutter: showGutter,
-                    showMinimap: showMinimap,
-                    showReformattingGuide: showReformattingGuide,
-                    invisibleCharactersConfiguration: invisibleCharactersConfig,
-                    warningCharacters: warningCharacters
-                )
-            ),
-            state: $editorState,
-            highlightProviders: [highlighter],
-            completionDelegate: nil
-        )
+                state: $editorState,
+                highlightProviders: [highlighter],
+                completionDelegate: nil
+            )
+
+            JSONFooterView(statistics: jsonStatistics)
+
+            HStack {
+                Button {
+                    if let formatted = try? JSONFormatter().format(textStorage.string, sortKey: true), formatted != textStorage.string {
+                        self.textStorage.setAttributedString(NSAttributedString(string: formatted))
+                    }
+                } label: {
+                    Text("format")
+                }
+
+                Spacer()
+            }
+            .background(Color.green)
+        }
+        .onAppear {
+            textStorage.setAttributedString(NSAttributedString(string: testJSON))
+        }
     }
 }
 

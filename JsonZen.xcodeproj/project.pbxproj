@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E456A5082E3E776E001EF394 /* CodeEditSourceEditor in Frameworks */ = {isa = PBXBuildFile; productRef = E456A5072E3E776E001EF394 /* CodeEditSourceEditor */; };
+		E456A52F2E3E939A001EF394 /* CodableWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = E456A52E2E3E939A001EF394 /* CodableWrapper */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E456A5082E3E776E001EF394 /* CodeEditSourceEditor in Frameworks */,
+				E456A52F2E3E939A001EF394 /* CodableWrapper in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +73,7 @@
 			name = JsonZen;
 			packageProductDependencies = (
 				E456A5072E3E776E001EF394 /* CodeEditSourceEditor */,
+				E456A52E2E3E939A001EF394 /* CodableWrapper */,
 			);
 			productName = JsonZen;
 			productReference = E4569E892E3E12D6001EF394 /* JsonZen.app */;
@@ -102,6 +105,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				E456A5062E3E776E001EF394 /* XCRemoteSwiftPackageReference "CodeEditSourceEditor" */,
+				E456A52D2E3E939A001EF394 /* XCRemoteSwiftPackageReference "CodableWrapper" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = E4569E8A2E3E12D6001EF394 /* Products */;
@@ -267,13 +271,14 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "JSON Zen";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wrapper.JsonZen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -296,13 +301,14 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "JSON Zen";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wrapper.JsonZen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -344,6 +350,14 @@
 				kind = branch;
 			};
 		};
+		E456A52D2E3E939A001EF394 /* XCRemoteSwiftPackageReference "CodableWrapper" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:winddpan/CodableWrapper.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -351,6 +365,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E456A5062E3E776E001EF394 /* XCRemoteSwiftPackageReference "CodeEditSourceEditor" */;
 			productName = CodeEditSourceEditor;
+		};
+		E456A52E2E3E939A001EF394 /* CodableWrapper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E456A52D2E3E939A001EF394 /* XCRemoteSwiftPackageReference "CodableWrapper" */;
+			productName = CodableWrapper;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
