@@ -179,8 +179,8 @@ extension TextLayoutManager {
         textStorage: NSTextStorage,
         yRange: Range<CGFloat>,
         maxFoundLineWidth: inout CGFloat
-    ) -> (CGFloat, wasLineHeightChanged: Bool) {
-        let lineSize = layoutLineViews(
+    ) -> (CGFloat, needsUpdate: Bool) {
+        let (lineSize, drawRect) = layoutLineViews(
             linePosition,
             textStorage: textStorage,
             layoutData: LineLayoutData(minY: yRange.lowerBound, maxY: yRange.upperBound, maxWidth: maxLineLayoutWidth),
@@ -206,7 +206,9 @@ extension TextLayoutManager {
             maxFoundLineWidth = lineSize.width
         }
 
-        return (yContentAdjustment, wasLineHeightChanged)
+
+
+        return (yContentAdjustment, true)
     }
 
     /// Lays out a single text line.
@@ -221,7 +223,7 @@ extension TextLayoutManager {
         textStorage: NSTextStorage,
         layoutData: LineLayoutData,
         laidOutFragmentIDs: inout Set<LineFragment.ID>
-    ) -> CGSize {
+    ) -> (lineSize: CGSize, drawRect: CGRect) {
         let lineDisplayData = TextLine.DisplayData(
             maxWidth: layoutData.maxWidth,
             lineHeightMultiplier: lineHeightMultiplier,
@@ -250,7 +252,7 @@ extension TextLayoutManager {
         }
 
         if position.range.isEmpty {
-            return CGSize(width: 0, height: estimateLineHeight())
+            return (CGSize(width: 0, height: estimateLineHeight()), .zero)
         }
 
         var height: CGFloat = 0
@@ -258,27 +260,31 @@ extension TextLayoutManager {
         let relativeMinY = max(layoutData.minY - position.yPos, 0)
         let relativeMaxY = max(layoutData.maxY - position.yPos, relativeMinY)
 
-//        for lineFragmentPosition in line.lineFragments.linesStartingAt(
-//            relativeMinY,
-//            until: relativeMaxY
-//        ) {
         for lineFragmentPosition in line.lineFragments {
             let lineFragment = lineFragmentPosition.data
             lineFragment.documentRange = lineFragmentPosition.range.translate(location: position.range.location)
 
             let yPos = position.yPos + lineFragmentPosition.yPos
-            layoutFragmentView(
-                inLine: position,
-                for: lineFragmentPosition,
-                at: yPos
-            )
+            if yPos < relativeMinY {
+                continue
+            }
+            if yPos < relativeMaxY {
+                layoutFragmentView(
+                    inLine: position,
+                    for: lineFragmentPosition,
+                    at: yPos
+                )
+                laidOutFragmentIDs.insert(lineFragment.id)
+            } else {
+                print("skip", yPos)
+            }
 
             width = max(width, lineFragment.width)
             height += lineFragment.scaledHeight
-            laidOutFragmentIDs.insert(lineFragment.id)
         }
 
-        return CGSize(width: width, height: height)
+        return (CGSize(width: width, height: height),
+                CGRect(x: 0, y: relativeMinY, width: width, height: relativeMaxY - relativeMinY))
     }
 
     // MARK: - Layout Fragment
@@ -292,15 +298,20 @@ extension TextLayoutManager {
         for lineFragment: TextLineStorage<LineFragment>.TextLinePosition,
         at yPos: CGFloat
     ) {
+        // print("layoutFragmentView draw:", lineFragment.range, lineFragment.data.id)
+
         let fragmentRange = lineFragment.range.translate(location: line.range.location)
         let view = viewReuseQueue.getOrCreateView(forKey: lineFragment.data.id) {
             renderDelegate?.lineFragmentView(for: lineFragment.data) ?? LineFragmentView()
         }
-        view.translatesAutoresizingMaskIntoConstraints = true // Small optimization for lots of subviews
         view.setLineFragment(lineFragment.data, fragmentRange: fragmentRange, renderer: lineFragmentRenderer)
         view.frame.origin = CGPoint(x: edgeInsets.left, y: yPos)
-        layoutView?.addSubview(view, positioned: .below, relativeTo: nil)
-        view.needsDisplay = true
+        view.translatesAutoresizingMaskIntoConstraints = true // Small optimization for lots of subviews
+
+        if view.superview != layoutView {
+            layoutView?.addSubview(view, positioned: .below, relativeTo: nil)
+            view.needsDisplay = true
+        }
     }
 
     private func updateLineViewPositions(_ position: TextLineStorage<TextLine>.TextLinePosition) -> Bool {

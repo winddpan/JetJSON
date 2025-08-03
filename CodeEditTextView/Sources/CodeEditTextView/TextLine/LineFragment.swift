@@ -11,7 +11,7 @@ import CodeEditTextViewObjC
 /// A ``LineFragment`` represents a subrange of characters in a line. Every text line contains at least one line
 /// fragments, and any lines that need to be broken due to width constraints will contain more than one fragment.
 public final class LineFragment: Identifiable, Equatable {
-    public struct FragmentContent: Equatable {
+    public struct FragmentContent: Equatable, Hashable {
         public enum Content: Equatable {
             case text(line: CTLine)
             case attachment(attachment: AnyTextAttachment)
@@ -27,6 +27,20 @@ public final class LineFragment: Identifiable, Equatable {
             case .attachment(let attachment):
                 attachment.range.length
             }
+        }
+
+        public func hash(into hasher: inout Hasher) {
+            switch data {
+            case .text(let line):
+                let cfRange = CTLineGetStringRange(line)
+                hasher.combine(cfRange.location)
+                hasher.combine(cfRange.length)
+            case .attachment(let attachment):
+                let ptr = Unmanaged.passUnretained(attachment.attachment as AnyObject).toOpaque()
+                hasher.combine(ptr)
+            }
+            hasher.combine(width)
+            hasher.combine(length)
         }
 
 #if DEBUG
@@ -46,7 +60,7 @@ public final class LineFragment: Identifiable, Equatable {
         let offset: Int
     }
 
-    public let id = UUID()
+    public let id: Int
     public var documentRange: NSRange = .notFound
     public var contents: [FragmentContent]
     public var width: CGFloat
@@ -66,6 +80,7 @@ public final class LineFragment: Identifiable, Equatable {
         descent: CGFloat,
         lineHeightMultiplier: CGFloat
     ) {
+        self.id = contents.hashValue
         self.contents = contents
         self.width = width
         self.height = height

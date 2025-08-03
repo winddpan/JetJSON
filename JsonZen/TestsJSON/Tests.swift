@@ -8,6 +8,6 @@
 import Foundation
 
 let testJSON: String = {
-    let url = Bundle.main.url(forResource: "1MB-min", withExtension: "json")!
+    let url = Bundle.main.url(forResource: "4KB-min", withExtension: "json")!
     return try! String(contentsOf: url, encoding: .utf8)
 }()

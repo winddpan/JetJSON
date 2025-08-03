@@ -41,6 +41,8 @@ public final class TextLineStorage<Data: Identifiable> {
 
     public var height: CGFloat = 0
 
+    public var drawRect: CGRect?
+
     public var first: TextLinePosition? {
         guard count > 0, let position = search(forIndex: 0) else { return nil }
         return TextLinePosition(position: position)
