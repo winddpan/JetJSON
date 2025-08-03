@@ -54,7 +54,7 @@ struct ContentView: View {
                     )
                 ),
                 state: $editorState,
-                highlightProviders: [highlighter],
+                highlightProviders: [],
                 completionDelegate: nil
             )
 

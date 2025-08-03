@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E456A5082E3E776E001EF394 /* CodeEditSourceEditor in Frameworks */ = {isa = PBXBuildFile; productRef = E456A5072E3E776E001EF394 /* CodeEditSourceEditor */; };
 		E456A52F2E3E939A001EF394 /* CodableWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = E456A52E2E3E939A001EF394 /* CodableWrapper */; };
+		E47297672E3F3E8D00FCE767 /* CodeEditSourceEditor in Frameworks */ = {isa = PBXBuildFile; productRef = E47297662E3F3E8D00FCE767 /* CodeEditSourceEditor */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E4569E892E3E12D6001EF394 /* JsonZen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JsonZen.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E47297642E3F3E7E00FCE767 /* CodeEditSourceEditor */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = CodeEditSourceEditor; sourceTree = "<group>"; };
+		E4729DAB2E3F4BDB00FCE767 /* CodeEditTextView */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = CodeEditTextView; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -28,8 +30,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E456A5082E3E776E001EF394 /* CodeEditSourceEditor in Frameworks */,
 				E456A52F2E3E939A001EF394 /* CodableWrapper in Frameworks */,
+				E47297672E3F3E8D00FCE767 /* CodeEditSourceEditor in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -39,7 +41,10 @@
 		E4569E802E3E12D6001EF394 = {
 			isa = PBXGroup;
 			children = (
+				E4729DAB2E3F4BDB00FCE767 /* CodeEditTextView */,
+				E47297642E3F3E7E00FCE767 /* CodeEditSourceEditor */,
 				E4569E8B2E3E12D6001EF394 /* JsonZen */,
+				E47297652E3F3E8D00FCE767 /* Frameworks */,
 				E4569E8A2E3E12D6001EF394 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -50,6 +55,13 @@
 				E4569E892E3E12D6001EF394 /* JsonZen.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		E47297652E3F3E8D00FCE767 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -72,8 +84,8 @@
 			);
 			name = JsonZen;
 			packageProductDependencies = (
-				E456A5072E3E776E001EF394 /* CodeEditSourceEditor */,
 				E456A52E2E3E939A001EF394 /* CodableWrapper */,
+				E47297662E3F3E8D00FCE767 /* CodeEditSourceEditor */,
 			);
 			productName = JsonZen;
 			productReference = E4569E892E3E12D6001EF394 /* JsonZen.app */;
@@ -104,7 +116,6 @@
 			mainGroup = E4569E802E3E12D6001EF394;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				E456A5062E3E776E001EF394 /* XCRemoteSwiftPackageReference "CodeEditSourceEditor" */,
 				E456A52D2E3E939A001EF394 /* XCRemoteSwiftPackageReference "CodableWrapper" */,
 			);
 			preferredProjectObjectVersion = 77;
@@ -342,14 +353,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		E456A5062E3E776E001EF394 /* XCRemoteSwiftPackageReference "CodeEditSourceEditor" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/CodeEditApp/CodeEditSourceEditor.git";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
 		E456A52D2E3E939A001EF394 /* XCRemoteSwiftPackageReference "CodableWrapper" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:winddpan/CodableWrapper.git";
@@ -361,15 +364,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		E456A5072E3E776E001EF394 /* CodeEditSourceEditor */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E456A5062E3E776E001EF394 /* XCRemoteSwiftPackageReference "CodeEditSourceEditor" */;
-			productName = CodeEditSourceEditor;
-		};
 		E456A52E2E3E939A001EF394 /* CodableWrapper */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E456A52D2E3E939A001EF394 /* XCRemoteSwiftPackageReference "CodableWrapper" */;
 			productName = CodableWrapper;
+		};
+		E47297662E3F3E8D00FCE767 /* CodeEditSourceEditor */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CodeEditSourceEditor;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

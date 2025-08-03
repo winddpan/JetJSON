@@ -50,6 +50,8 @@ class JSONSyntaxHighlighter: HighlightProviding {
     ) {
         let text = textView.string
 
+        print("queryHighlightsFor", range)
+
         var highlights: [HighlightRange] = []
 
         // JSON Key pattern
@@ -84,7 +86,7 @@ class JSONSyntaxHighlighter: HighlightProviding {
                 if capture == .string {
                     range = match.numberOfRanges > 1 ? match.range(at: 1) : match.range
                 }
-                print("\(capture)", match.numberOfRanges, (text as NSString).substring(with: range))
+                // print("\(capture)", match.numberOfRanges, (text as NSString).substring(with: range))
                 return HighlightRange(range: range, capture: capture)
             }
         } catch {
