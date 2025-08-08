@@ -1,15 +1,15 @@
-# JsonZen 🧘 (WIP)
+# JetJSON 🧘 (WIP)
 
 <p align="center">
   <strong>An AI-powered, native macOS tool for a serene and productive JSON workflow.</strong>
   <br><br>
   <!-- Add some badges here -->
-  <a href="https://github.com/winddpan/JsonZen/releases"><img src="https://img.shields.io/github/v/release/winddpan/JsonZen"></a>
-  <a href="https://github.com/winddpan/JsonZen/blob/main/LICENSE"><img src="https://img.shields.io/github/license/winddpan/JsonZen"></a>
-  <a href="https://github.com/winddpan/JsonZen/actions"><img src="https://img.shields.io/github/actions/workflow/status/winddpan/JsonZen/build.yml?branch=main"></a>
+  <a href="https://github.com/winddpan/JetJSON/releases"><img src="https://img.shields.io/github/v/release/winddpan/JetJSON"></a>
+  <a href="https://github.com/winddpan/JetJSON/blob/main/LICENSE"><img src="https://img.shields.io/github/license/winddpan/JetJSON"></a>
+  <a href="https://github.com/winddpan/JetJSON/actions"><img src="https://img.shields.io/github/actions/workflow/status/winddpan/JetJSON/build.yml?branch=main"></a>
 </p>
 
-JsonZen isn't just another JSON tool; it's a serene, powerful, and native macOS application designed to make working with JSON effortless and enjoyable. Built from the ground up for macOS, it combines a blazing-fast user experience with intelligent AI features.
+JetJSON isn't just another JSON tool; it's a serene, powerful, and native macOS application designed to make working with JSON effortless and enjoyable. Built from the ground up for macOS, it combines a blazing-fast user experience with intelligent AI features.
 
 ## ✨ Key Features
 
@@ -28,7 +28,7 @@ JsonZen isn't just another JSON tool; it's a serene, powerful, and native macOS 
 
 ## 🌐 Open Source Philosophy & Our AI Backend
 
-JsonZen is built with transparency and community in mind.
+JetJSON is built with transparency and community in mind.
 
 *   **Open Source Client**: The entire macOS application is **open-source** (licensed under MIT). You can inspect the code, learn from it, and contribute to its development. We believe in building the best possible native client with the help of the community.
 *   **Closed Source AI Backend**: The powerful AI features are powered by our proprietary, **closed-source** backend server. This model allows us to innovate rapidly, maintain a high-quality service, and manage the significant computational costs associated with AI.
@@ -39,11 +39,11 @@ We are committed to providing a free tier for core AI functionalities.
 
 ### Installation
 *   **Mac App Store**: Coming Soon!
-*   **GitHub Releases**: Download the latest `.dmg` file from the [Releases page](https://github.com/winddpan/JsonZen/releases).
+*   **GitHub Releases**: Download the latest `.dmg` file from the [Releases page](https://github.com/winddpan/JetJSON/releases).
 
 ## 📄 License
 
-JsonZen uses a dual-license model to balance open community collaboration with the protection of specific intellectual property.
+JetJSON uses a dual-license model to balance open community collaboration with the protection of specific intellectual property.
 
 *   **Core Application (MIT License)**
     The main macOS application client (all user interface, core utilities like formatting, diffing, etc.) is licensed under the permissive [MIT License](LICENSE). This encourages community contributions, forks, and learning. You are free to modify and use this part of the code in your own projects, including commercial ones.
