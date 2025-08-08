@@ -1,0 +1,13 @@
+//
+//  consts.swift
+//  JetJSON
+//
+//  Created by winddpan on 8/2/25.
+//
+
+import Foundation
+
+let testJSON: String = {
+    let url = Bundle.main.url(forResource: "4KB-min", withExtension: "json")!
+    return try! String(contentsOf: url, encoding: .utf8)
+}()

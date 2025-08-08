@@ -1,0 +1,42 @@
+{
+  "originHash" : "58070a05212516c3fa6224fee85306a19693e6aba51cb1f4eb53b52ebc8cb7f1",
+  "pins" : [
+    {
+      "identity" : "codablewrapper",
+      "kind" : "remoteSourceControl",
+      "location" : "git@github.com:winddpan/CodableWrapper.git",
+      "state" : {
+        "revision" : "e8300fc207f6f94f247fa3f39162f66944505e8d",
+        "version" : "1.1.3"
+      }
+    },
+    {
+      "identity" : "swift-argument-parser",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-argument-parser",
+      "state" : {
+        "revision" : "309a47b2b1d9b5e991f36961c983ecec72275be3",
+        "version" : "1.6.1"
+      }
+    },
+    {
+      "identity" : "swift-syntax",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/swiftlang/swift-syntax",
+      "state" : {
+        "revision" : "0687f71944021d616d34d922343dcef086855920",
+        "version" : "600.0.1"
+      }
+    },
+    {
+      "identity" : "yams",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/jpsim/Yams",
+      "state" : {
+        "revision" : "f4d4d6827d36092d151ad7f6fef1991c1b7192f6",
+        "version" : "6.0.2"
+      }
+    }
+  ],
+  "version" : 3
+}

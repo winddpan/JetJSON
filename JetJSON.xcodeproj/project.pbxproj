@@ -1,0 +1,538 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C00561722E45DF3F009DFDCC /* TextEditing in Frameworks */ = {isa = PBXBuildFile; productRef = C00561712E45DF3F009DFDCC /* TextEditing */; };
+		C00561742E45DF5B009DFDCC /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = C00561732E45DF5B009DFDCC /* Defaults */; };
+		C00561762E45DF64009DFDCC /* CharacterInfo in Frameworks */ = {isa = PBXBuildFile; productRef = C00561752E45DF64009DFDCC /* CharacterInfo */; };
+		C00561782E45DF64009DFDCC /* EditedRangeSet in Frameworks */ = {isa = PBXBuildFile; productRef = C00561772E45DF64009DFDCC /* EditedRangeSet */; };
+		C005617A2E45DF64009DFDCC /* EditorCore in Frameworks */ = {isa = PBXBuildFile; productRef = C00561792E45DF64009DFDCC /* EditorCore */; };
+		C005617C2E45DF64009DFDCC /* FileEncoding in Frameworks */ = {isa = PBXBuildFile; productRef = C005617B2E45DF64009DFDCC /* FileEncoding */; };
+		C005617E2E45DF64009DFDCC /* FilePermissions in Frameworks */ = {isa = PBXBuildFile; productRef = C005617D2E45DF64009DFDCC /* FilePermissions */; };
+		C00561802E45DF64009DFDCC /* FuzzyRange in Frameworks */ = {isa = PBXBuildFile; productRef = C005617F2E45DF64009DFDCC /* FuzzyRange */; };
+		C00561822E45DF64009DFDCC /* Invisible in Frameworks */ = {isa = PBXBuildFile; productRef = C00561812E45DF64009DFDCC /* Invisible */; };
+		C00561842E45DF64009DFDCC /* LineEnding in Frameworks */ = {isa = PBXBuildFile; productRef = C00561832E45DF64009DFDCC /* LineEnding */; };
+		C00561862E45DF64009DFDCC /* LineSort in Frameworks */ = {isa = PBXBuildFile; productRef = C00561852E45DF64009DFDCC /* LineSort */; };
+		C00561882E45DF64009DFDCC /* SemanticVersioning in Frameworks */ = {isa = PBXBuildFile; productRef = C00561872E45DF64009DFDCC /* SemanticVersioning */; };
+		C005618A2E45DF64009DFDCC /* StringUtils in Frameworks */ = {isa = PBXBuildFile; productRef = C00561892E45DF64009DFDCC /* StringUtils */; };
+		C005618C2E45DF64009DFDCC /* Syntax in Frameworks */ = {isa = PBXBuildFile; productRef = C005618B2E45DF64009DFDCC /* Syntax */; };
+		C005618E2E45DF64009DFDCC /* TextClipping in Frameworks */ = {isa = PBXBuildFile; productRef = C005618D2E45DF64009DFDCC /* TextClipping */; };
+		C00561902E45DF64009DFDCC /* TextFind in Frameworks */ = {isa = PBXBuildFile; productRef = C005618F2E45DF64009DFDCC /* TextFind */; };
+		C00561922E45DF64009DFDCC /* URLUtils in Frameworks */ = {isa = PBXBuildFile; productRef = C00561912E45DF64009DFDCC /* URLUtils */; };
+		C00561942E45DFD3009DFDCC /* Shortcut in Frameworks */ = {isa = PBXBuildFile; productRef = C00561932E45DFD3009DFDCC /* Shortcut */; };
+		C00562112E45E0D3009DFDCC /* RegexHighlighting in Frameworks */ = {isa = PBXBuildFile; productRef = C00562102E45E0D3009DFDCC /* RegexHighlighting */; };
+		C0AE43BF2E45FB74001C3B9E /* ColorCode in Frameworks */ = {isa = PBXBuildFile; productRef = C0AE43BE2E45FB74001C3B9E /* ColorCode */; };
+		C0AE43D32E460048001C3B9E /* SyntaxMap in Frameworks */ = {isa = PBXBuildFile; productRef = C0AE43D22E460048001C3B9E /* SyntaxMap */; };
+		E456A52F2E3E939A001EF394 /* CodableWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = E456A52E2E3E939A001EF394 /* CodableWrapper */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		E4569E892E3E12D6001EF394 /* JetJSON.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JetJSON.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		C0A759622E45DBFB003D6B57 /* Exceptions for "Packages" folder in "JetJSON" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				EditorCore,
+				SyntaxMap,
+			);
+			target = E4569E882E3E12D6001EF394 /* JetJSON */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		C0A759612E45DBFB003D6B57 /* Packages */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				C0A759622E45DBFB003D6B57 /* Exceptions for "Packages" folder in "JetJSON" target */,
+			);
+			path = Packages;
+			sourceTree = "<group>";
+		};
+		E4569E8B2E3E12D6001EF394 /* JetJSON */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = JetJSON;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E4569E862E3E12D6001EF394 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C00561922E45DF64009DFDCC /* URLUtils in Frameworks */,
+				C00561742E45DF5B009DFDCC /* Defaults in Frameworks */,
+				C0AE43D32E460048001C3B9E /* SyntaxMap in Frameworks */,
+				C00561942E45DFD3009DFDCC /* Shortcut in Frameworks */,
+				C00561722E45DF3F009DFDCC /* TextEditing in Frameworks */,
+				C00561762E45DF64009DFDCC /* CharacterInfo in Frameworks */,
+				C005618A2E45DF64009DFDCC /* StringUtils in Frameworks */,
+				C00561802E45DF64009DFDCC /* FuzzyRange in Frameworks */,
+				C005618C2E45DF64009DFDCC /* Syntax in Frameworks */,
+				C005617E2E45DF64009DFDCC /* FilePermissions in Frameworks */,
+				C005618E2E45DF64009DFDCC /* TextClipping in Frameworks */,
+				C0AE43BF2E45FB74001C3B9E /* ColorCode in Frameworks */,
+				C00561782E45DF64009DFDCC /* EditedRangeSet in Frameworks */,
+				C005617C2E45DF64009DFDCC /* FileEncoding in Frameworks */,
+				C00561842E45DF64009DFDCC /* LineEnding in Frameworks */,
+				C00561862E45DF64009DFDCC /* LineSort in Frameworks */,
+				C00561902E45DF64009DFDCC /* TextFind in Frameworks */,
+				C005617A2E45DF64009DFDCC /* EditorCore in Frameworks */,
+				C00561822E45DF64009DFDCC /* Invisible in Frameworks */,
+				C00561882E45DF64009DFDCC /* SemanticVersioning in Frameworks */,
+				C00562112E45E0D3009DFDCC /* RegexHighlighting in Frameworks */,
+				E456A52F2E3E939A001EF394 /* CodableWrapper in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E4569E802E3E12D6001EF394 = {
+			isa = PBXGroup;
+			children = (
+				C0A759612E45DBFB003D6B57 /* Packages */,
+				E4569E8B2E3E12D6001EF394 /* JetJSON */,
+				E47297652E3F3E8D00FCE767 /* Frameworks */,
+				E4569E8A2E3E12D6001EF394 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E4569E8A2E3E12D6001EF394 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E4569E892E3E12D6001EF394 /* JetJSON.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E47297652E3F3E8D00FCE767 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E4569E882E3E12D6001EF394 /* JetJSON */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E4569E952E3E12D7001EF394 /* Build configuration list for PBXNativeTarget "JetJSON" */;
+			buildPhases = (
+				E4569E852E3E12D6001EF394 /* Sources */,
+				E4569E862E3E12D6001EF394 /* Frameworks */,
+				E4569E872E3E12D6001EF394 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				C0A759612E45DBFB003D6B57 /* Packages */,
+				E4569E8B2E3E12D6001EF394 /* JetJSON */,
+			);
+			name = JetJSON;
+			packageProductDependencies = (
+				E456A52E2E3E939A001EF394 /* CodableWrapper */,
+				C00561712E45DF3F009DFDCC /* TextEditing */,
+				C00561732E45DF5B009DFDCC /* Defaults */,
+				C00561752E45DF64009DFDCC /* CharacterInfo */,
+				C00561772E45DF64009DFDCC /* EditedRangeSet */,
+				C00561792E45DF64009DFDCC /* EditorCore */,
+				C005617B2E45DF64009DFDCC /* FileEncoding */,
+				C005617D2E45DF64009DFDCC /* FilePermissions */,
+				C005617F2E45DF64009DFDCC /* FuzzyRange */,
+				C00561812E45DF64009DFDCC /* Invisible */,
+				C00561832E45DF64009DFDCC /* LineEnding */,
+				C00561852E45DF64009DFDCC /* LineSort */,
+				C00561872E45DF64009DFDCC /* SemanticVersioning */,
+				C00561892E45DF64009DFDCC /* StringUtils */,
+				C005618B2E45DF64009DFDCC /* Syntax */,
+				C005618D2E45DF64009DFDCC /* TextClipping */,
+				C005618F2E45DF64009DFDCC /* TextFind */,
+				C00561912E45DF64009DFDCC /* URLUtils */,
+				C00561932E45DFD3009DFDCC /* Shortcut */,
+				C00562102E45E0D3009DFDCC /* RegexHighlighting */,
+				C0AE43BE2E45FB74001C3B9E /* ColorCode */,
+				C0AE43D22E460048001C3B9E /* SyntaxMap */,
+			);
+			productName = JsonZen;
+			productReference = E4569E892E3E12D6001EF394 /* JetJSON.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E4569E812E3E12D6001EF394 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1640;
+				LastUpgradeCheck = 1640;
+				TargetAttributes = {
+					E4569E882E3E12D6001EF394 = {
+						CreatedOnToolsVersion = 16.4;
+					};
+				};
+			};
+			buildConfigurationList = E4569E842E3E12D6001EF394 /* Build configuration list for PBXProject "JetJSON" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E4569E802E3E12D6001EF394;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				E456A52D2E3E939A001EF394 /* XCRemoteSwiftPackageReference "CodableWrapper" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = E4569E8A2E3E12D6001EF394 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E4569E882E3E12D6001EF394 /* JetJSON */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E4569E872E3E12D6001EF394 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E4569E852E3E12D6001EF394 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		E4569E932E3E12D7001EF394 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = Y457P5Q8XM;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E4569E942E3E12D7001EF394 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = Y457P5Q8XM;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		E4569E962E3E12D7001EF394 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = JetJSON/JetJSON.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "JSON Zen";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wrapper.JetJSON;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		E4569E972E3E12D7001EF394 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = JetJSON/JetJSON.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "JSON Zen";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wrapper.JetJSON;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E4569E842E3E12D6001EF394 /* Build configuration list for PBXProject "JetJSON" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E4569E932E3E12D7001EF394 /* Debug */,
+				E4569E942E3E12D7001EF394 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E4569E952E3E12D7001EF394 /* Build configuration list for PBXNativeTarget "JetJSON" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E4569E962E3E12D7001EF394 /* Debug */,
+				E4569E972E3E12D7001EF394 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E456A52D2E3E939A001EF394 /* XCRemoteSwiftPackageReference "CodableWrapper" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:winddpan/CodableWrapper.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C00561712E45DF3F009DFDCC /* TextEditing */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TextEditing;
+		};
+		C00561732E45DF5B009DFDCC /* Defaults */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Defaults;
+		};
+		C00561752E45DF64009DFDCC /* CharacterInfo */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CharacterInfo;
+		};
+		C00561772E45DF64009DFDCC /* EditedRangeSet */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = EditedRangeSet;
+		};
+		C00561792E45DF64009DFDCC /* EditorCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = EditorCore;
+		};
+		C005617B2E45DF64009DFDCC /* FileEncoding */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FileEncoding;
+		};
+		C005617D2E45DF64009DFDCC /* FilePermissions */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FilePermissions;
+		};
+		C005617F2E45DF64009DFDCC /* FuzzyRange */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FuzzyRange;
+		};
+		C00561812E45DF64009DFDCC /* Invisible */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Invisible;
+		};
+		C00561832E45DF64009DFDCC /* LineEnding */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = LineEnding;
+		};
+		C00561852E45DF64009DFDCC /* LineSort */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = LineSort;
+		};
+		C00561872E45DF64009DFDCC /* SemanticVersioning */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SemanticVersioning;
+		};
+		C00561892E45DF64009DFDCC /* StringUtils */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = StringUtils;
+		};
+		C005618B2E45DF64009DFDCC /* Syntax */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Syntax;
+		};
+		C005618D2E45DF64009DFDCC /* TextClipping */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TextClipping;
+		};
+		C005618F2E45DF64009DFDCC /* TextFind */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TextFind;
+		};
+		C00561912E45DF64009DFDCC /* URLUtils */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = URLUtils;
+		};
+		C00561932E45DFD3009DFDCC /* Shortcut */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Shortcut;
+		};
+		C00562102E45E0D3009DFDCC /* RegexHighlighting */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RegexHighlighting;
+		};
+		C0AE43BE2E45FB74001C3B9E /* ColorCode */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ColorCode;
+		};
+		C0AE43D22E460048001C3B9E /* SyntaxMap */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SyntaxMap;
+		};
+		E456A52E2E3E939A001EF394 /* CodableWrapper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E456A52D2E3E939A001EF394 /* XCRemoteSwiftPackageReference "CodableWrapper" */;
+			productName = CodableWrapper;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = E4569E812E3E12D6001EF394 /* Project object */;
+}
