@@ -28,10 +28,9 @@ JetJSON isn't just another JSON tool; it's a serene, powerful, and native macOS 
 
 ## 🌐 Open Source Philosophy & Our AI Backend
 
-JetJSON is built with transparency and community in mind.
+JetJSON is built with transparency
 
 *   **Open Source Client**: The entire macOS application is **open-source** (licensed under MIT). You can inspect the code, learn from it, and contribute to its development. We believe in building the best possible native client with the help of the community.
-*   **Closed Source AI Backend**: The powerful AI features are powered by our proprietary, **closed-source** backend server. This model allows us to innovate rapidly, maintain a high-quality service, and manage the significant computational costs associated with AI.
 
 We are committed to providing a free tier for core AI functionalities.
 
