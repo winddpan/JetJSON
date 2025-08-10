@@ -10,11 +10,7 @@ import SwiftUI
 struct EditorTextRepresentableView: NSViewControllerRepresentable {
     let textStorage: NSTextStorage
     let theme: Theme
-
-    init(textStorage: NSTextStorage, theme: Theme) {
-        self.textStorage = textStorage
-        self.theme = theme
-    }
+    let font: NSFont?
 
     func makeNSViewController(context: Context) -> EditorTextViewController {
         EditorTextViewController(textStorage: textStorage)
@@ -22,5 +18,6 @@ struct EditorTextRepresentableView: NSViewControllerRepresentable {
 
     func updateNSViewController(_ nsViewController: EditorTextViewController, context: Context) {
         nsViewController.theme = theme
+        nsViewController.font = font
     }
 }

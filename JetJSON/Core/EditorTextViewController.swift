@@ -15,11 +15,23 @@ final class EditorTextViewController: NSViewController, NSTextViewDelegate {
         }
     }
 
+    var font: NSFont? {
+        set {
+            textView.font = newValue
+        }
+        get {
+            textView.font
+        }
+    }
+
     private var visibleAreaObservers: [NSObjectProtocol] = []
     let textStorage: NSTextStorage
 
     required init(textStorage: NSTextStorage) {
         self.textStorage = textStorage
+        let lineEndingScanner = LineEndingScanner(textStorage: textStorage, lineEnding: .lf)
+        let textView = EditorTextView(textStorage: textStorage, lineEndingScanner: lineEndingScanner)
+        self.textView = textView
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -32,8 +44,6 @@ final class EditorTextViewController: NSViewController, NSTextViewDelegate {
 
     override func loadView() {
         // minimal editable text view
-        let lineEndingScanner = LineEndingScanner(textStorage: textStorage, lineEnding: .lf)
-        let textView = EditorTextView(textStorage: textStorage, lineEndingScanner: lineEndingScanner)
         textView.delegate = self
 
         let scrollView = NSScrollView()
@@ -50,7 +60,6 @@ final class EditorTextViewController: NSViewController, NSTextViewDelegate {
 
         view = stackView
         self.lineNumberView = lineNumberView
-        self.textView = textView
         textView.theme = theme
 
         // Observe visible area changes (scroll/resize) to re-apply highlight
@@ -63,11 +72,13 @@ final class EditorTextViewController: NSViewController, NSTextViewDelegate {
 
         textView.postsFrameChangedNotifications = true
         let frameToken = NotificationCenter.default.addObserver(forName: NSView.frameDidChangeNotification, object: textView, queue: .main) { [weak self] _ in
-            self?.applyJSONHighlighting()
+            DispatchQueue.main.async {
+                self?.applyJSONHighlighting()
+            }
         }
         visibleAreaObservers.append(frameToken)
 
-        applyJSONHighlighting()
+        updateFontAndHighlight()
     }
 
     deinit {
@@ -105,6 +116,16 @@ final class EditorTextViewController: NSViewController, NSTextViewDelegate {
     // MARK: NSTextViewDelegate
 
     func textDidChange(_ notification: Notification) {
+        // Ensure the document keeps the editor font to avoid attribute fallbacks that can hide temp colors
+        updateFontAndHighlight()
+    }
+
+    private func updateFontAndHighlight() {
+        if let font = textView.font, let storage = textView.textStorage {
+            storage.beginEditing()
+            storage.addAttribute(.font, value: font, range: NSRange(location: 0, length: storage.length))
+            storage.endEditing()
+        }
         applyJSONHighlighting()
     }
 
@@ -115,6 +136,7 @@ final class EditorTextViewController: NSViewController, NSTextViewDelegate {
 
         // Only process visible range for performance
         guard let visibleRange = textView.visibleRange else { return }
+        // Clear existing temp colors within visible area to avoid stale highlights
         layoutManager.removeTemporaryAttribute(.foregroundColor, forCharacterRange: visibleRange)
 
         let stringColor = theme.strings.color
@@ -132,19 +154,25 @@ final class EditorTextViewController: NSViewController, NSTextViewDelegate {
         // true | false | null
         let valuePattern = #"\b(?:true|false|null)\b"#
 
-        func highlight(pattern: String, color: NSColor) {
-            guard let regex = try? NSRegularExpression(pattern: pattern, options: []) else { return }
-            let matches = regex.matches(in: textView.string, options: [], range: visibleRange)
-            for match in matches {
-                layoutManager.addTemporaryAttribute(.foregroundColor, value: color, forCharacterRange: match.range)
+        // Expand search window to cover tokens crossing visible boundaries
+        let fullLength = (textView.string as NSString).length
+        let context: Int = 8_192
+        let searchLocation = max(0, visibleRange.location - context)
+        let searchEnd = min(fullLength, visibleRange.upperBound + context)
+        let searchRange = NSRange(location: searchLocation, length: searchEnd - searchLocation)
+
+        func addColor(_ color: NSColor, for range: NSRange) {
+            // Apply only the intersected portion within visible area
+            if let intersection = range.intersection(visibleRange) {
+                layoutManager.addTemporaryAttribute(.foregroundColor, value: color, forCharacterRange: intersection)
             }
         }
 
         // First, highlight all strings and collect ranges to avoid highlighting numbers/keywords inside strings.
         guard let stringRegex = try? NSRegularExpression(pattern: stringPattern, options: []) else { return }
-        let stringMatches = stringRegex.matches(in: textView.string, options: [], range: visibleRange)
+        let stringMatches = stringRegex.matches(in: textView.string, options: [], range: searchRange)
         for match in stringMatches {
-            layoutManager.addTemporaryAttribute(.foregroundColor, value: stringColor, forCharacterRange: match.range)
+            addColor(stringColor, for: match.range)
         }
 
         func isInsideString(_ range: NSRange) -> Bool {
@@ -156,16 +184,16 @@ final class EditorTextViewController: NSViewController, NSTextViewDelegate {
 
         // Then highlight numbers and keywords excluding ranges inside strings.
         if let numberRegex = try? NSRegularExpression(pattern: numberPattern, options: []) {
-            for match in numberRegex.matches(in: textView.string, options: [], range: visibleRange) {
+            for match in numberRegex.matches(in: textView.string, options: [], range: searchRange) {
                 if !isInsideString(match.range) {
-                    layoutManager.addTemporaryAttribute(.foregroundColor, value: numberColor, forCharacterRange: match.range)
+                    addColor(numberColor, for: match.range)
                 }
             }
         }
         if let valueRegex = try? NSRegularExpression(pattern: valuePattern, options: []) {
-            for match in valueRegex.matches(in: textView.string, options: [], range: visibleRange) {
+            for match in valueRegex.matches(in: textView.string, options: [], range: searchRange) {
                 if !isInsideString(match.range) {
-                    layoutManager.addTemporaryAttribute(.foregroundColor, value: valueColor, forCharacterRange: match.range)
+                    addColor(valueColor, for: match.range)
                 }
             }
         }
@@ -174,9 +202,9 @@ final class EditorTextViewController: NSViewController, NSTextViewDelegate {
         // Highlight keys in visible range
         func highlightInVisible(pattern: String, color: NSColor) {
             guard let regex = try? NSRegularExpression(pattern: pattern, options: []) else { return }
-            let matches = regex.matches(in: textView.string, options: [], range: visibleRange)
+            let matches = regex.matches(in: textView.string, options: [], range: searchRange)
             for match in matches {
-                layoutManager.addTemporaryAttribute(.foregroundColor, value: color, forCharacterRange: match.range)
+                addColor(color, for: match.range)
             }
         }
         highlightInVisible(pattern: keyPattern, color: keyColor)

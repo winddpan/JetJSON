@@ -10,11 +10,10 @@ import SwiftUI
 let defaultTheme = try! Theme(contentsOf: Bundle.main.url(forResource: "Classic", withExtension: ".cottheme")!)
 
 let testJSON: String = {
-    // let url = Bundle.main.url(forResource: "5MB", withExtension: "json")!
-    let url = Bundle.main.url(forResource: "5MB-min", withExtension: "json")!
+     let url = Bundle.main.url(forResource: "5MB", withExtension: "json")!
+//    let url = Bundle.main.url(forResource: "5MB-min", withExtension: "json")!
     return try! String(contentsOf: url, encoding: .utf8)
 }()
-
 
 struct ContentView: View {
     @State private var textStorage = NSTextStorage()
@@ -29,12 +28,12 @@ struct ContentView: View {
 //    @State private var invisibleCharactersConfig: InvisibleCharactersConfiguration = .empty
 //    @State private var warningCharacters: Set<UInt16> = []
 
-    @AppStorage("reformatAtColumn") private var reformatAtColumn: Int = 80
-    @AppStorage("showGutter") private var showGutter: Bool = true
-    @AppStorage("showMinimap") private var showMinimap: Bool = false
-    @AppStorage("showReformattingGuide") private var showReformattingGuide: Bool = false
-    @AppStorage("showFoldingRibbon") private var showFoldingRibbon: Bool = true
-    @AppStorage("wrapLines") private var wrapLines: Bool = true
+//    @AppStorage("reformatAtColumn") private var reformatAtColumn: Int = 80
+//    @AppStorage("showGutter") private var showGutter: Bool = true
+//    @AppStorage("showMinimap") private var showMinimap: Bool = false
+//    @AppStorage("showReformattingGuide") private var showReformattingGuide: Bool = false
+//    @AppStorage("showFoldingRibbon") private var showFoldingRibbon: Bool = true
+//    @AppStorage("wrapLines") private var wrapLines: Bool = true
 
 //    var jsonStatistics: JSONStatistics {
 //        JSONStatistics(from: textStorage.string)
@@ -42,7 +41,11 @@ struct ContentView: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            EditorTextRepresentableView(textStorage: textStorage, theme: defaultTheme)
+            EditorTextRepresentableView(
+                textStorage: textStorage,
+                theme: defaultTheme,
+                font: NSFont.systemFont(ofSize: 13, weight: .regular)
+            )
 
 //            SourceEditor(
 //                textStorage,
