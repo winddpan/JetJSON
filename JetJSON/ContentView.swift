@@ -32,7 +32,9 @@ struct ContentView: View {
 //    }
 
     var body: some View {
-//        VStack(spacing: 0) {
+        VStack(spacing: 0) {
+            EditorTextSwiftUIView()
+
 //            SourceEditor(
 //                textStorage,
 //                language: language,
@@ -69,7 +71,7 @@ struct ContentView: View {
 //                Spacer()
 //            }
 //            .background(Color.green)
-//        }
+        }
 //        .onAppear {
 //            textStorage.setAttributedString(NSAttributedString(string: testJSON))
 //        }

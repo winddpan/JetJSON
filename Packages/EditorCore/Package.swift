@@ -102,7 +102,7 @@ let package = Package(
 
         .target(name: "ValueRange"),
 
-        .target(name: "RegexHighlighting", dependencies: []),
+        .target(name: "RegexHighlighting", dependencies: ["Invisible"]),
         .target(name: "Shortcut", resources: [.process("Resources")]),
         .target(name: "ColorCode", resources: []),
     ]
